@@ -1,5 +1,5 @@
 /*************************************
- * Diego Salas Arce, Karen Chacón
+ * Diego Salas Arce, Karen Chacï¿½n
  * Programacion II
  * Tarea Abanico
  * 2012
@@ -11,18 +11,23 @@ public class IUAbanico {
 	public static PrintStream out = System.out; 
 	public static Abanico abaniquito= new Abanico(); //Objeto abaniquito de tipo Abanico
 	
+        /***
+         * Metodo Main
+         * @param args
+         * @throws IOException 
+         */
 	public static void main(String[] args)throws IOException {
 		int opc;
 		boolean noSalir = true;
 		out.println(abaniquito.getfEstadoAbanico());
 		String[] listaMenu={"1.  On / Off",
-							"2.  Iluminar",
-							"3.  Quitar Iluminación",
-							"4   Incrementar velocidad",
-							"5.  Decrementar velocidad",
-							"6.  Fijo / En movimiento",
-							"7.  Información del Abanico",
-							"8.  Salir"};
+                                    "2.  Iluminar",
+                                    "3.  Quitar Iluminaciï¿½n",
+                                    "4   Incrementar velocidad",
+                                    "5.  Decrementar velocidad",
+                                    "6.  Fijo / En movimiento",
+                                    "7.  Informaciï¿½n del Abanico",
+                                    "8.  Salir"};
 
 		do{
 			mostrarMenu(listaMenu);
@@ -31,6 +36,10 @@ public class IUAbanico {
 		}while (noSalir);
 	}
 	
+        /***
+         * Imprime el arreglo que contiene el menÃº
+         * @param plista 
+         */
 	static void mostrarMenu(String[] plista){
 
 		out.println();
@@ -41,6 +50,11 @@ public class IUAbanico {
 		out.println();
 	}
 	
+        /***
+         * Lee el teclado con la opciÃ³n escogida por el usuario
+         * @return
+         * @throws java.io.IOException 
+         */
 	static int leerOpcion()throws java.io.IOException{
 
 		int opcion;
@@ -52,6 +66,12 @@ public class IUAbanico {
 		return opcion;
 	}
 	
+        /***
+         * Acciones disponibles que el usuario puede escoger
+         * @param popcion
+         * @return
+         * @throws java.io.IOException 
+         */
 	static boolean ejecutarAccion(int popcion)throws java.io.IOException{
 
 		boolean noSalir = true;
@@ -67,7 +87,7 @@ public class IUAbanico {
 				out.println(abaniquito.iluminacion());
 				break;
 			
-			case 3: //Quitar iluminación
+			case 3: //Quitar iluminaciï¿½n
 				abaniquito.enciendeApagaIluminacion();
 				out.println(abaniquito.quitarIluminacion());
 				break;
@@ -88,7 +108,7 @@ public class IUAbanico {
 				
 				break;
 		
-			case 7: //Información del abanico
+			case 7: //Informaciï¿½n del abanico
 				out.println(abaniquito.toString());
 				break;
 			
@@ -97,7 +117,7 @@ public class IUAbanico {
 				noSalir = false;
 				break;
 
-			default: //Cualquier otro valor dado por el usuario se considera inválido
+			default: //Cualquier otro valor dado por el usuario se considera invï¿½lido
 
 				out.println("Opcion invalida");
 				out.println();
