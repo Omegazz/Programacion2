@@ -1,21 +1,23 @@
 /*************************************
- * Diego Salas Arce, Karen Chacón
+ * Diego Salas Arce, Karen Chacï¿½n
  * Programacion II
  * Tarea Abanico
  * 2012
  *************************************/
 public class Abanico {
-
+        
+        //Atributos de instancia
 	private boolean onOffAbanico;
 	private boolean onOffIluminacion;
 	private int velocidadAbanico;
 	private boolean movimientoAbanico;
 	
-	//constructor
+	//constructor sin parametros
 	public Abanico(){
 		this(false,false,0,true);
 	}
 	
+        //constructor con parametros
 	public Abanico(boolean ponOffAbanico, boolean ponOffIluminacion, int pvelocidadAbanico, boolean pmovimientoAbanico){
 		setEncenderApagarAbanico(ponOffAbanico);
 		setEncenderApagarIluminacion(ponOffIluminacion);
@@ -23,8 +25,9 @@ public class Abanico {
 		setAjusteAbanico(pmovimientoAbanico);
 	}
 
-	
-
+	/***
+         * Enciende el abanico
+         */
 	public void encenderApagarAbanico(){
 		onOffAbanico=!onOffAbanico;// cambia el valor a apagado o ensendido
 	}
@@ -33,6 +36,10 @@ public class Abanico {
 		onOffAbanico= pencenderApagar;
 	}
 	
+        /***
+         * Obtiene el estado del abanico : On / OFF
+         * @return 
+         */
 	public String getfEstadoAbanico(){
 		String alerta;
 		if(onOffAbanico){
@@ -43,6 +50,9 @@ public class Abanico {
 		return alerta;
 	}
 	
+        /***
+         * Enciende la iluminacion del abanico
+         */
 	public void enciendeApagaIluminacion(){
 		onOffIluminacion=!onOffIluminacion;// cambia el valor a apagado o encendido (false a true)
 	}
@@ -59,13 +69,18 @@ public class Abanico {
 	}
 	public String quitarIluminacion(){
 		String alerta;
-		alerta="Sin iluminación";
+		alerta="Sin iluminaciï¿½n";
 	return alerta;
 	}
 	
 	private void setAjustarVelocidad(int pvelocidadAbanico){
 		velocidadAbanico=pvelocidadAbanico;
 	}
+        
+        /***
+         * Incrementa la velocidad de las aspas abanico
+         * @return 
+         */
 	public int incrementarVelocidad(){
 		if(velocidadAbanico<=3){
 			 velocidadAbanico++;
@@ -73,13 +88,22 @@ public class Abanico {
 		} 
 		 return velocidadAbanico;
 	}
+        
+        /***
+         * Decrementa la velocidad de las aspas del abanico
+         * @return 
+         */
 	public int deCrementarVelocidad(){
 		 velocidadAbanico--;
 		 aumentarDecreVelocidadAbanico();
 		 
 		 return velocidadAbanico;
-   }
-
+        }
+        
+        /***
+         * Obtiene el estado del abanico en cuanto a potencia de soplado
+         * @return 
+         */
 	public String aumentarDecreVelocidadAbanico(){
 		String alerta="";
 		if(onOffAbanico){
@@ -96,19 +120,22 @@ public class Abanico {
 						break;
 					case 3:
 						alerta="Soplando fuerte \n";
-						alerta+="Ha alcanzado la velocidad máxima\n";
+						alerta+="Ha alcanzado la velocidad mï¿½xima\n";
 						break;	
 				}
 			}else{
 				velocidadAbanico--;				
-				alerta="Ha alcanzado la velocidad máxima";
+				alerta="Ha alcanzado la velocidad mï¿½xima";
 			}
 		}else{
 			alerta="Sin velocidad (Apagado)";
 		}
 		return alerta;
 }
-
+        /***
+         * Ajusta movimiento al abanico
+         * @param pmovimientoAbanico 
+         */
 	private void setAjusteAbanico(boolean pmovimientoAbanico) {
 		 movimientoAbanico=pmovimientoAbanico;
 		
@@ -119,6 +146,11 @@ public class Abanico {
 		movimientoAbanico=!movimientoAbanico;
 		
 	}
+        
+        /***
+         * Indicador si el abanico esta fijo o no
+         * @return 
+         */
 	public String verifMovAjusteAbanico(){
 		String ajuste;
 		if (movimientoAbanico){
@@ -130,6 +162,10 @@ public class Abanico {
 		 return ajuste;
 	}
 	
+        /***
+         * Obtiene la informacion general del abanico
+         * @return 
+         */
 	public String toString(){
 		String msj;
 		msj=getfEstadoAbanico()+"\n";
